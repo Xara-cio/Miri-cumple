@@ -119,6 +119,20 @@ body {
     background-size: contain;
 }
 
+@media (max-width: 480px) {
+    #pista-texto {
+        font-size: 5vw;
+        padding: 3vw;
+        margin-top: 8%;
+    }
+
+    #siguiente-pista {
+        padding: 4vw 6vw;
+        font-size: 5vw;
+        margin-top: 8vw;
+    }
+}
+
 
 
 
