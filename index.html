@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polli cumple</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="imagen-inicial-container">
+        <img id="imagen-inicial" src="tarjeta.png" alt="Tarjeta de cumpleaños">
+    </div>
+    <div id="static-background" class="hidden">
+        <button id="boton-pista">Descubre tú regalo</button>
+    </div>
+    <div id="pistas-container" class="hidden">
+        <div id="pistas-fondo">
+            <p id="pista-texto"></p>
+            <button id="siguiente-pista">Siguiente</button>
+        </div>
+    </div>
+    <div id="imagen-final-container" class="hidden">
+    </div>
+    <script>
+        const imagenInicialContainer = document.getElementById('imagen-inicial-container');
+        const staticBackground = document.getElementById('static-background');
+        const botonPista = document.getElementById('boton-pista');
+        const pistasContainer = document.getElementById('pistas-container');
+        const pistaTexto = document.getElementById('pista-texto');
+        const siguientePista = document.getElementById('siguiente-pista');
+        const imagenFinalContainer = document.getElementById('imagen-final-container');
+        
+        setTimeout(() => {
+            imagenInicialContainer.style.display = 'block';
+            setTimeout(() => {
+                imagenInicialContainer.style.opacity = 0;
+                staticBackground.style.display = 'block';
+                staticBackground.style.opacity = 1;
+                setTimeout(() => {
+                    imagenInicialContainer.style.display = 'none';
+                }, 1000);
+            }, 5000);
+        }, 3000);
+        
+        let indicePista = 0;
+        const pistas = [
+            "El 04 de Abril nos espera un destino en plena naturaleza… Un lugar donde la vida salvaje y los paisajes montañosos nos dejarán sin aliento.",
+            "Nuestro viaje nos llevará a un parque natural donde el agua fluye entre rocas y bosques frondosos.",
+            "En este lugar, los ciervos son los reyes del bosque y los buitres los guardianes del cielo.",
+            "Si miramos al horizonte, veremos montañas que se funden con el cielo azul.",
+            "Aquí, el río nace entre cascadas y pozas de agua cristalina.",
+            "Este destino es un paraíso para los amantes del senderismo y la aventura.",
+            "El sonido del agua nos guiará hasta rincones llenos de paz y frescura.",
+            "Aquí, los pueblos blancos se esconden entre valles y montañas.",
+            "El oro que mana de sus campos, esencia de su tierra, condimenta secretos ancestrales.",
+            "Las leyendas de este lugar hablan de tesoros escondidos y cuevas misteriosas.",
+            "Aquí, la naturaleza virgen nos invita a conectar con lo esencial.",
+            "Cada primavera, el aire se llena del aroma de flores silvestres y pinares.",
+            "Aquí, las cascadas no son solo agua… Son un espectáculo para los sentidos.",
+            "En este destino, la gastronomía tiene raíces profundas: los ingredientes son sencillos, pero los sabores inolvidables.",
+            "Antiguas fortalezas y castillos nos cuentan la historia de una tierra de frontera.",
+            "Aquí, las noches son estrelladas y el silencio es el mejor compañero.",
+            "En primavera, los campos se llenan de color, música y tradición… y es imposible no enamorarse del lugar.",
+            "Caminaremos sobre senderos que han sido testigos de la historia y la naturaleza.",
+            "Un laberinto de ríos, montañas y bosques nos espera.",
+            "Para terminar… Este lugar es un tesoro natural en el corazón de Andalucía. ¿Ya sabes dónde vamos?"
+        ];
+        
+        pistasContainer.style.display = 'none';
+
+        botonPista.addEventListener('click', () => {
+            if (indicePista < pistas.length) {
+                pistaTexto.innerText = pistas[indicePista];
+                staticBackground.style.display = 'none';
+                pistasContainer.style.display = 'block';
+                pistasContainer.style.opacity = 1;
+                indicePista++;
+            } else {
+                botonPista.style.display = 'none';
+            }
+        });
+        
+        siguientePista.addEventListener('click', () => {
+            if (indicePista < pistas.length - 1) {
+                pistaTexto.innerText = pistas[indicePista];
+                indicePista++;
+            } else {
+                pistasContainer.style.opacity = 0;
+                setTimeout(() => {
+                    imagenFinalContainer.style.display = 'block';
+                    imagenFinalContainer.style.opacity = 1;
+                    pistasContainer.style.display = 'none';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
