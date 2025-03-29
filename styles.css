@@ -120,16 +120,34 @@ body {
 }
 
 @media (max-width: 480px) {
+    #pistas-fondo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background: url('fondopistas.png') no-repeat center center;
+        background-size: contain;
+    }
+
     #pista-texto {
-        font-size: 5vw;
-        padding: 3vw;
-        margin-top: 8%;
+        font-size: 3.5vw; /* Reducimos el tamaño de la fuente */
+        padding: 2vw;
+        max-width: 70%; /* Reducimos el ancho máximo */
+        margin-top: 5%;
+        line-height: 1.2;
     }
 
     #siguiente-pista {
-        padding: 4vw 6vw;
-        font-size: 5vw;
-        margin-top: 8vw;
+        padding: 3vw 5vw;
+        font-size: 4vw;
+        margin-top: 5vw;
     }
 }
 
